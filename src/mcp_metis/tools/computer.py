@@ -69,10 +69,9 @@ class ComputerTool(BaseAnthropicTool):
 
     name: Literal["computer"] = "computer"
     api_type: Literal["computer_20241022"] = "computer_20241022"
-    width: int
-    height: int
-    display_num: int | None
-
+    width = 1024
+    height = 768
+    display_num: 10
     _screenshot_delay = 2.0
     _scaling_enabled = True
 
@@ -140,7 +139,7 @@ class ComputerTool(BaseAnthropicTool):
             if coordinate is not None:
                 raise ToolError(f"coordinate is not accepted for {action}")
             if not isinstance(text, str):
-                raise ToolError(output=f"{text} must be a string")
+                raise ToolError(f"{text} must be a string")
 
             if action == "key":
                 return await self.shell(f"{self.xdotool} key -- {text}")
