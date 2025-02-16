@@ -18,7 +18,7 @@ from mcp.shared.exceptions import McpError
 from mcp.types import INTERNAL_ERROR, INVALID_PARAMS, ErrorData
 from requests.exceptions import RequestException
 
-from .tools import BashTool, ComputerTool, EditTool, ToolCollection, ToolResult
+from mcp_metis.tools import BashTool, ComputerTool, EditTool, ToolCollection, ToolResult
 
 mcp = FastMCP("metis")
 

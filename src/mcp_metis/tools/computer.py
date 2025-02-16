@@ -52,9 +52,9 @@ class ScalingSource(StrEnum):
 
 
 class ComputerToolOptions(TypedDict):
-    display_height_px: int
-    display_width_px: int
-    display_number: int | None
+    display_height_px: int = 1024
+    display_width_px: int = 768
+    display_number: int = 10
 
 
 def chunks(s: str, chunk_size: int) -> list[str]:
@@ -92,15 +92,12 @@ class ComputerTool(BaseAnthropicTool):
     def __init__(self):
         super().__init__()
 
-        self.width = int(os.getenv("WIDTH") or 0)
-        self.height = int(os.getenv("HEIGHT") or 0)
+        self.width = 1024
+        self.height = 768
         assert self.width and self.height, "WIDTH, HEIGHT must be set"
-        if (display_num := os.getenv("DISPLAY_NUM")) is not None:
-            self.display_num = int(display_num)
-            self._display_prefix = f"DISPLAY=:{self.display_num} "
-        else:
-            self.display_num = None
-            self._display_prefix = ""
+
+        self.display_num = 10
+        self._display_prefix = f"DISPLAY=:{self.display_num} "
 
         self.xdotool = f"{self._display_prefix}xdotool"
 
