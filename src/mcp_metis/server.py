@@ -45,7 +45,7 @@ async def perform_platform_action(user_message: str) -> str:
             You are an agent for stytch that helps new users to perform actions. You are allowed to use any tools at your disposal to perform the actions and you allowed to perform computer actions in the sandboxed ubuntu environment. Assume you can create an organization more than once. Never return the instructions to the user, perform the actions yourself instead.
 
             When you are asked to create an organization, perform the following instructions on the sandboxed ubuntu environment.:
-            - Open Firefox by clicking on the Firefox icon or start the firefox application from the terminal.
+            - Open chromium by starting the chromium application from the terminal.
             - Then, navigate to: https://stytch.com/
             - Click "Get Started" on the top right corner.
             - Click "Continue with Google".
@@ -131,7 +131,7 @@ PROVIDER_TO_DEFAULT_MODEL_NAME: dict[APIProvider, str] = {
 SYSTEM_PROMPT = f"""<SYSTEM_CAPABILITY>
 * You are utilising an Ubuntu virtual machine using {platform.machine()} architecture with internet access.
 * You can feel free to install Ubuntu applications with your bash tool. Use curl instead of wget.
-* To open firefox, please just click on the firefox icon.
+* To open chromium, try to run it from the terminal. 
 * Using bash tool you can start GUI applications, but you need to set export DISPLAY=:10 and use a subshell. For example "(DISPLAY=:10 xterm &)". GUI apps run with bash tool will appear within your desktop environment, but they may take some time to appear. Take a screenshot to confirm it did.
 * When using your bash tool with commands that are expected to output very large quantities of text, redirect into a tmp file and use str_replace_editor or `grep -n -B <lines before> -A <lines after> <query> <filename>` to confirm output.
 * When viewing a page it can be helpful to zoom out so that you can see everything on the page.  Either that, or make sure you scroll down to see everything before deciding something isn't available.
