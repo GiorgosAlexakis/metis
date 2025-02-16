@@ -1,10 +1,11 @@
 import argparse
 
 from .server import mcp
+from .tools import BashTool, ComputerTool, EditTool, ToolCollection, ToolResult
 
 
 def main():
-    """MCP Wiki: Read Wikipedia articles and convert them to Markdown."""
+    """MCP Metis command-line interface."""
     parser = argparse.ArgumentParser(
         description="Gives you the ability to read Wikipedia articles and convert them to Markdown."
     )

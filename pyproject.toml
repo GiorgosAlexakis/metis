@@ -1,6 +1,6 @@
 [project]
 name = "mcp-metis"
-version = "0.1.0"
+version = "0.0.2"
 description = "MCP Server for Metis"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -8,6 +8,7 @@ dependencies = [
     "beautifulsoup4>=4.12.3",
     "html2text>=2024.2.26",
     "mcp[cli]>=1.2.0",
+    "mcp",
     "requests>=2.32.3",
     "anthropic>=0.37.1",
     "jsonschema==4.22.0",
@@ -19,7 +20,7 @@ dependencies = [
 ]
 
 [project.scripts]
-mcp-metis = "mcp:main"
+mcp-metis = "mcp_metis:main"
 
 [build-system]
 requires = ["hatchling"]
